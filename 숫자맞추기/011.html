@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+const randomNumber = Math.floor(Math.random() * 100) + 1;
+let guess;
+let attempts = 0;
+
+while (guess !== randomNumber) {
+  guess = prompt("1부터 100 사이의 숫자를 입력하세요:");
+
+  if (guess === null) {
+    alert("게임이 취소되었습니다.");
+    break;
+  }
+
+  const parsedGuess = parseInt(guess);
+  if (isNaN(parsedGuess) || parsedGuess < 1 || parsedGuess > 100) {
+    alert("1부터 100 사이의 유효한 숫자를 입력하세요.");
+    continue;
+  }
+
+  attempts++;
+
+  if (parsedGuess < randomNumber) {
+    alert("더 큰 숫자를 선택하세요.");
+  } else if (parsedGuess > randomNumber) {
+    alert("더 작은 숫자를 선택하세요.");
+  } else {
+    alert(`정답입니다! ${attempts}번 시도했습니다.`);
+  }
+}
+  </script>
+  
+</body>
+</html>
